@@ -5,6 +5,7 @@ from tkinter import PhotoImage
 import clientes
 import pdf_generator
 import dolarnow
+import about
 
 def call_alert(mensagem):
     messagebox.showinfo("Alerta", f"{mensagem}")
@@ -56,7 +57,7 @@ button.grid(row=0, column=0, padx=0, pady=0,sticky="w")
 button = tk.Button(toolbar, text="Configurações", command="")
 button.grid(row=0, column=1, padx=0, pady=0, sticky="w")
 
-button_2 = tk.Button(toolbar, text="About", command="",)
+button_2 = tk.Button(toolbar, text="About", command=lambda: about.about())
 button_2.grid(row=0, column=2, padx=0, pady=0, sticky="w")
 
 #====Configurações da Barra Infrerior (Status Bar) =======================================================================================
@@ -146,6 +147,12 @@ button.grid(row=3, column=0, padx=0, pady=5, sticky="w")
 
 button = tk.Button(left_pane, width=10, height=1,text="Vendedores", command="")
 button.grid(row=4, column=0, padx=0, pady=5, sticky="w")
+
+button = tk.Button(left_pane, width=16, height=1,text="Calculos de Venda", command="")
+button.grid(row=5, column=0, padx=0, pady=5, sticky="w")
+
+button = tk.Button(left_pane, width=20, height=1,text="Descrição para Importação", command="")
+button.grid(row=6, column=0, padx=0, pady=5, sticky="w")
 
 
 
