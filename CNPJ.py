@@ -1,5 +1,8 @@
 import requests
+
 teste = 1
+
+
 def buscar_cnpj(cnpj):
     url = f'https://www.receitaws.com.br/v1/cnpj/{cnpj}'
     response = requests.get(url)

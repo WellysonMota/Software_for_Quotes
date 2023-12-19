@@ -1,9 +1,11 @@
-from fpdf import FPDF  # Certifique-se de ter a biblioteca fpdf instalada
 import datetime
 import os
 import subprocess
 
-def PDF_Generator(cliente, empresa, combobox_local, combobox_moeda,combobox_inco,combobox_termo, combobox_frete):
+from fpdf import FPDF  # Certifique-se de ter a biblioteca fpdf instalada
+
+
+def PDF_Generator(cliente, empresa, combobox_local, combobox_moeda, combobox_inco, combobox_termo, combobox_frete):
     class PDF(FPDF):
 
         def header(self):
@@ -21,7 +23,7 @@ def PDF_Generator(cliente, empresa, combobox_local, combobox_moeda,combobox_inco
     pdf = PDF()
     pdf.add_page()
     pdf.set_font("Arial", size=10)
-    pdf.multi_cell(0, 10, f"Data: {data_formatada}",align="R")
+    pdf.multi_cell(0, 10, f"Data: {data_formatada}", align="R")
     pdf.multi_cell(0, 10, f"Cliente: {cliente}")
     pdf.multi_cell(0, 10, f"Empresa: {empresa}")
     pdf.multi_cell(0, 10, f"Local: {combobox_local}")
