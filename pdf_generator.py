@@ -39,7 +39,8 @@ def PDF_Generator(cliente, empresa, combobox_local, combobox_moeda, combobox_inc
 
         if os.path.exists(nome_arquivo):
             # Abra o arquivo PDF no leitor de PDF padrão
-            subprocess.Popen([nome_arquivo], shell=True)
+            ## subprocess.Popen([nome_arquivo], shell=True) == PARA WINDOWS
+            subprocess.Popen(["xdg-open", nome_arquivo]) #PAra Linux!!!!
         else:
             print("PDF Não foi aberto, arquivo não existe")
             mensagem = "PDF Não foi aberto, arquivo não existe"
