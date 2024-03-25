@@ -12,4 +12,4 @@ def get_dolar_value():
 
 
 if __name__ == '__main__':
-    rint(get_dolar_value())
+    print(get_dolar_value())

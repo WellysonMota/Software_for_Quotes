@@ -4,6 +4,7 @@ from tkinter import ttk
 
 import about
 import clientes
+import db_manager
 import dolarnow
 import pdf_generator
 
@@ -155,10 +156,15 @@ button = tk.Button(left_pane, width=20, height=1, text="Descrição para Importa
 button.grid(row=6, column=0, padx=0, pady=5, sticky="w")
 
 # Botão de Ação final ======================================================================================================================
+#button = tk.Button(right_pane, text="Gerar PDF",
+                   #command=lambda: pdf_generator.PDF_Generator(cliente.get(), empresa.get(), combobox_local.get(),
+                                                               #combobox_moeda.get(), combobox_inco.get(),
+                                                               #combobox_termo.get(), combobox_frete.get()))
 button = tk.Button(right_pane, text="Gerar PDF",
-                   command=lambda: pdf_generator.PDF_Generator(cliente.get(), empresa.get(), combobox_local.get(),
-                                                               combobox_moeda.get(), combobox_inco.get(),
-                                                               combobox_termo.get(), combobox_frete.get()))
+                   command=lambda:db_manager.inserir_quote('EPS Americana', 'BRL', 'Wellyson', 'Compwire',
+                  'Murilo Rupp', 'System Integrator', 'Brasil', 'Santa Catarina', 'Florianapolis','NET30',
+                  'Sedex', 17800))
+
 button.grid(row=20, column=4, padx=0, pady=0)
 
 janela.mainloop()
