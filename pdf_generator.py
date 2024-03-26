@@ -46,3 +46,4 @@ def PDF_Generator(cliente, empresa, combobox_local, combobox_moeda, combobox_inc
             mensagem = "PDF Não foi aberto, arquivo não existe"
     except:
         print("PDF Não foi gerado, arquivo Aberto")
+

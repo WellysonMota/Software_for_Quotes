@@ -6,7 +6,7 @@ import about
 import clientes
 import db_manager
 import dolarnow
-import pdf_generator
+
 
 data = datetime.date.today()
 data_formatada = data.strftime("%d%m%Y")
