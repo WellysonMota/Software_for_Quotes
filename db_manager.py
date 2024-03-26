@@ -2,6 +2,7 @@ import mysql.connector
 from mysql.connector import Error
 
 
+
 def criar_conexao():
     """Cria uma conexão com o banco de dados."""
     try:
@@ -18,15 +19,15 @@ def criar_conexao():
         return None
 
 
-def inserir_quote(origin, currency, accountmanager, companyname, contactname, companytype, companycountry, companystate,
+def inserir_quote(origin, currency, date, accountmanager, companyname, contactname, companytype, companycountry, companystate,
                   companycity, paymenterm, freight, totalamount):
     """Insere um novo registro na tabela QuoteSent."""
     try:
         conexao = criar_conexao()
         cursor = conexao.cursor()
-        query = ("INSERT INTO QuoteSent (Origin, Currency, AccountManager, CompanyName, ContactName, CompanyType, CompanyCountry, CompanyState, CompanyCity, "
-                 "PaymentTerm, Freight, TotalAmount) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
-        valores = (origin, currency, accountmanager, companyname, contactname, companytype, companycountry, companystate,
+        query = ("INSERT INTO QuoteSent (Origin, Currency, Date, AccountManager, CompanyName, ContactName, CompanyType, CompanyCountry, CompanyState, CompanyCity, "
+                 "PaymentTerm, Freight, TotalAmount) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+        valores = (origin, currency, date, accountmanager, companyname, contactname, companytype, companycountry, companystate,
                   companycity, paymenterm, freight, totalamount)
         cursor.execute(query, valores)
         conexao.commit()
