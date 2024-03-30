@@ -7,11 +7,26 @@ from fpdf import FPDF  # Certifique-se de ter a biblioteca fpdf instalada
 
 def PDF_Generator(origin, currency, date, accountmanager, companyname, contactname, companytype, companycountry, companystate,
                   companycity, paymenterm, freight, totalamount):
+
+#Classificação do Header de acordo com a origim selecionada.
+    if origin == "Brasil":
+        headerQuote : str  = "EPS Serviços para Produtos Eletrônicos do Brasil LTDA - CNPJ: 14.150.26/0001-70 - Tel.: +55 19 3256-0661"
+    elif origin == "Estados Unidos":
+        headerQuote: str = "EPS Services LLC - TAX ID xxxxxxx - Phone: xxxxxxxxxxxxxxxxxx - Indianapolis US"
+    elif origin == "Irlanda":
+        headerQuote: str = "EPS Services LLC - TAX ID xxxxxxx - Phone: xxxxxxxxxxxxxxxxxx - Dublin - IE"
+    else:
+        headerQuote: str  = "Error please select another location"
+
+
+
+
+
     class PDF(FPDF):
 
         def header(self):
             self.set_font("Arial", "B", 8)
-            self.cell(0, 4, f"Teste Header", 0, 1, "L")
+            self.cell(0, 4, f"{headerQuote}", 0, 1, "L")
 
         def footer(self):
             self.set_y(-15)
