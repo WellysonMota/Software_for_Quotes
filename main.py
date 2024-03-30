@@ -6,6 +6,7 @@ import about
 import clientes
 import db_manager
 import dolarnow
+import button_Controller
 
 
 data = datetime.date.today()
@@ -163,7 +164,7 @@ button.grid(row=6, column=0, padx=0, pady=5, sticky="w")
                                                                #combobox_moeda.get(), combobox_inco.get(),
                                                                #combobox_termo.get(), combobox_frete.get()))
 button = tk.Button(right_pane, text="Gerar PDF",
-                   command=lambda:db_manager.inserir_quote('EPS Americana', 'BRL', data, 'Wellyson', 'Compwire',
+                   command=lambda:button_Controller.gerarQuote_Action('EPS Americana', 'BRL', data, 'Wellyson', 'Compwire',
                   'Murilo Rupp', 'System Integrator', 'Brasil', 'Santa Catarina', 'Florianapolis','NET30',
                   'Sedex', 17800))
 

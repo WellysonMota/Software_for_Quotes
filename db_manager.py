@@ -3,6 +3,7 @@ from mysql.connector import Error
 
 
 
+
 def criar_conexao():
     """Cria uma conexão com o banco de dados."""
     try:
@@ -19,8 +20,9 @@ def criar_conexao():
         return None
 
 
-def inserir_quote(origin, currency, date, accountmanager, companyname, contactname, companytype, companycountry, companystate,
-                  companycity, paymenterm, freight, totalamount):
+def inserir_quote(origin: object, currency: object, date: object, accountmanager: object, companyname: object, contactname: object, companytype: object, companycountry: object,
+                  companystate: object,
+                  companycity: object, paymenterm: object, freight: object, totalamount: object) -> object:
     """Insere um novo registro na tabela QuoteSent."""
     try:
         conexao = criar_conexao()
@@ -32,6 +34,7 @@ def inserir_quote(origin, currency, date, accountmanager, companyname, contactna
         cursor.execute(query, valores)
         conexao.commit()
         print(f"Quote adicionada com sucesso. ID: {cursor.lastrowid}")
+
     except Error as e:
         print(f"Erro ao inserir quote: {e}")
     finally:

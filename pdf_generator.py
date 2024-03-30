@@ -5,7 +5,8 @@ import subprocess
 from fpdf import FPDF  # Certifique-se de ter a biblioteca fpdf instalada
 
 
-def PDF_Generator(cliente, empresa, combobox_local, combobox_moeda, combobox_inco, combobox_termo, combobox_frete):
+def PDF_Generator(origin, currency, date, accountmanager, companyname, contactname, companytype, companycountry, companystate,
+                  companycity, paymenterm, freight, totalamount):
     class PDF(FPDF):
 
         def header(self):
@@ -15,7 +16,7 @@ def PDF_Generator(cliente, empresa, combobox_local, combobox_moeda, combobox_inc
         def footer(self):
             self.set_y(-15)
             self.set_font("Arial", "I", 8)
-            self.cell(0, 10, f"Cliente: {cliente}", 0, 0, "L")
+            self.cell(0, 10, f"Cliente: {contactname}", 0, 0, "L")
             self.cell(0, 10, f"Página {self.page_no()}", 0, 0, "C")
 
     datahoje = datetime.date.today()
@@ -24,14 +25,13 @@ def PDF_Generator(cliente, empresa, combobox_local, combobox_moeda, combobox_inc
     pdf.add_page()
     pdf.set_font("Arial", size=10)
     pdf.multi_cell(0, 10, f"Data: {data_formatada}", align="R")
-    pdf.multi_cell(0, 10, f"Cliente: {cliente}")
-    pdf.multi_cell(0, 10, f"Empresa: {empresa}")
-    pdf.multi_cell(0, 10, f"Local: {combobox_local}")
-    pdf.multi_cell(0, 10, f"Moeda: {combobox_moeda}")
-    pdf.multi_cell(0, 10, f"Incoterm: {combobox_inco}")
-    pdf.multi_cell(0, 10, f"Termo de Pagamento: {combobox_termo}")
-    pdf.multi_cell(0, 10, f"Frete: {combobox_frete}")
-    nome_arquivo = f"Cotacao {combobox_inco} {empresa} - {data_formatada}.pdf"
+    pdf.multi_cell(0, 10, f"Cliente: {contactname}")
+    pdf.multi_cell(0, 10, f"Empresa: {companyname}")
+    pdf.multi_cell(0, 10, f"Local: {companycountry}")
+    pdf.multi_cell(0, 10, f"Moeda: {currency}")
+    pdf.multi_cell(0, 10, f"Termo de Pagamento: {paymenterm}")
+    pdf.multi_cell(0, 10, f"Frete: {freight}")
+    nome_arquivo = f"Cotacao {companyname} {origin} - {data_formatada}.pdf"
 
     try:
         pdf.output(nome_arquivo)
