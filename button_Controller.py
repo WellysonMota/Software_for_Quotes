@@ -12,5 +12,5 @@ def gerarQuote_Action (origin, currency, date, accountmanager, companyname, cont
 
     # Função 2 = Gerar PDF
 
-    pdf_generator.PDF_Generator(origin, currency, date, accountmanager, companyname, contactname, companytype, companycountry, companystate,
-                                companycity, paymenterm, freight, totalamount)
+    #pdf_generator.PDF_Generator(origin, currency, date, accountmanager, companyname, contactname, companytype, companycountry, companystate,
+                              #  companycity, paymenterm, freight, totalamount)
