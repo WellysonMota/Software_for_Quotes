@@ -18,6 +18,16 @@ def PDF_Generator(origin, language, currency, date, accountmanager, companyname,
     else:
         headerQuote: str  = "Error please select another location"
 
+    # Classificação da linguagem da proposta
+    if language == "PT-BR":
+            helloQuote: str = f"Prezado(a) {contactname}, obrigado por sua solicitação, por gentileza avalie nossa proposta abaixo:"
+    elif language == "EN-US":
+            helloQuote: str = f"Hi {contactname}, thank you for your request, please see our proposal below:"
+    elif language  == "ES-AR":
+            helloQuote: str = "Estimado, gracias por su solicitud, por favor evalúe nuestra propuesta a continuación:"
+    else:
+            helloQuote: str = "Error please select another language"
+
 
 
 
@@ -46,6 +56,7 @@ def PDF_Generator(origin, language, currency, date, accountmanager, companyname,
     pdf.multi_cell(0, 10, f"Moeda: {currency}")
     pdf.multi_cell(0, 10, f"Termo de Pagamento: {paymenterm}")
     pdf.multi_cell(0, 10, f"Frete: {freight}")
+    pdf.multi_cell(0, 10, f"{helloQuote}")
     nome_arquivo = f"Cotacao {companyname} {origin} - {data_formatada}.pdf"
 
     try:
