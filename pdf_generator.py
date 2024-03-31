@@ -5,7 +5,7 @@ import subprocess
 from fpdf import FPDF  # Certifique-se de ter a biblioteca fpdf instalada
 
 
-def PDF_Generator(origin, currency, date, accountmanager, companyname, contactname, companytype, companycountry, companystate,
+def PDF_Generator(origin, language, currency, date, accountmanager, companyname, contactname, companytype, companycountry, companystate,
                   companycity, paymenterm, freight, totalamount):
 
 #Classificação do Header de acordo com a origim selecionada.
