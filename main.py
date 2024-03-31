@@ -83,8 +83,8 @@ combobox_local.grid(row=2, column=0, padx=0, pady=0)
 label = tk.Label(right_pane, text="Selecione a Linguagem:")
 label.grid(row=3, column=0, padx=0, pady=0)
 linguagem = ["PT-BR", "EN-US", "ES-AR"]
-combobox_local = ttk.Combobox(right_pane, values=linguagem)
-combobox_local.grid(row=4, column=0, padx=0, pady=0)
+combobox_language = ttk.Combobox(right_pane, values=linguagem)
+combobox_language.grid(row=4, column=0, padx=0, pady=0)
 
 label = tk.Label(right_pane, text="Selecione o Incoterm:   ")
 label.grid(row=5, column=0, padx=0, pady=0)
@@ -170,7 +170,7 @@ button.grid(row=6, column=0, padx=0, pady=5, sticky="w")
                                                                #combobox_moeda.get(), combobox_inco.get(),
                                                                #combobox_termo.get(), combobox_frete.get()))
 button = tk.Button(right_pane, text="Gerar PDF",
-                   command=lambda:button_Controller.gerarQuote_Action(combobox_local.get(), 'BRL', data, 'Wellyson', 'Compwire',
+                   command=lambda:button_Controller.gerarQuote_Action(combobox_local.get(), combobox_language.get(),'BRL', data, 'Wellyson', 'Compwire',
                   'Murilo Rupp', 'System Integrator', 'Brasil', 'Santa Catarina', 'Florianapolis','NET30',
                   'Sedex', 17800))
 

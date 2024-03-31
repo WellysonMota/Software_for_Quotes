@@ -20,16 +20,16 @@ def criar_conexao():
         return None
 
 
-def inserir_quote(origin: object, currency: object, date: object, accountmanager: object, companyname: object, contactname: object, companytype: object, companycountry: object,
+def inserir_quote(origin: object, language: object, currency: object, date: object, accountmanager: object, companyname: object, contactname: object, companytype: object, companycountry: object,
                   companystate: object,
                   companycity: object, paymenterm: object, freight: object, totalamount: object) -> object:
     """Insere um novo registro na tabela QuoteSent."""
     try:
         conexao = criar_conexao()
         cursor = conexao.cursor()
-        query = ("INSERT INTO QuoteSent (Origin, Currency, Date, AccountManager, CompanyName, ContactName, CompanyType, CompanyCountry, CompanyState, CompanyCity, "
-                 "PaymentTerm, Freight, TotalAmount) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
-        valores = (origin, currency, date, accountmanager, companyname, contactname, companytype, companycountry, companystate,
+        query = ("INSERT INTO QuoteSent (Origin, Language, Currency, Date, AccountManager, CompanyName, ContactName, CompanyType, CompanyCountry, CompanyState, CompanyCity, "
+                 "PaymentTerm, Freight, TotalAmount) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+        valores = (origin, language, currency, date, accountmanager, companyname, contactname, companytype, companycountry, companystate,
                   companycity, paymenterm, freight, totalamount)
         cursor.execute(query, valores)
         conexao.commit()
