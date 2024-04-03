@@ -4,10 +4,9 @@ from tkinter import ttk
 import datetime
 import about
 import clientes
-import db_manager
 import dolarnow
 import button_Controller
-
+import setDatabase_view
 
 data = datetime.date.today()
 data_formatada = data.strftime("%d%m%Y")
@@ -162,6 +161,9 @@ button = tk.Button(left_pane, width=16, height=1, text="Calculos de Venda", comm
 button.grid(row=5, column=0, padx=0, pady=5, sticky="w")
 
 button = tk.Button(left_pane, width=20, height=1, text="Descrição para Importação", command="")
+button.grid(row=6, column=0, padx=0, pady=5, sticky="w")
+
+button = tk.Button(left_pane, width=20, height=1, text="Configurar Banco de Dados", command=lambda: setDatabase_view.setDatabase_view())
 button.grid(row=6, column=0, padx=0, pady=5, sticky="w")
 
 # Botão de Ação final ======================================================================================================================

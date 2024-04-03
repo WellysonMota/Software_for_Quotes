@@ -2,15 +2,24 @@ import mysql.connector
 from mysql.connector import Error
 
 
+def databaseChange(enterPasscode, setHost, setUser, setPassword, setDatabase):
 
-def criar_conexao():
+    if enterPasscode == "1234":
+        try:
+            criar_conexao(setHost, setUser, setPassword, setDatabase)
+        except:
+            print("Não foi possivel setar o Banco")
+    else:
+        print("Wrong Passcode!")
+
+def criar_conexao(setHost, setUser, setPassword, setDatabase):
     """Cria uma conexão com o banco de dados."""
     try:
         conexao = mysql.connector.connect(
-            host='127.0.0.1',
-            user='root',
-            password='',
-            database='QuotesDatabase'
+            host= setHost,
+            user= setUser,
+            password=setPassword,
+            database=setDatabase
         )
         print("Banco Conectado com sucesso!")
         return conexao
