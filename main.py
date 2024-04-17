@@ -33,8 +33,8 @@ def on_button_click():
 # Crie uma janela principal
 janela = tk.Tk()
 janela.title("Gerador de Cotações - EPS")
-largura = 800
-altura = 600
+largura = 1080
+altura = 840
 x = (janela.winfo_screenwidth() - largura) // 2
 y = (janela.winfo_screenheight() - altura) // 2
 janela.geometry(f"{largura}x{altura}+{x}+{y}")
@@ -173,7 +173,7 @@ button.grid(row=6, column=0, padx=0, pady=5, sticky="w")
                                                                #combobox_termo.get(), combobox_frete.get()))
 button = tk.Button(right_pane, text="Gerar PDF",
                    command=lambda:button_Controller.gerarQuote_Action(combobox_local.get(), combobox_language.get(),'BRL', data, 'Wellyson', 'Compwire',
-                  'Murilo Rupp', 'System Integrator', 'Brasil', 'Santa Catarina', 'Florianapolis','NET30',
+                  cliente.get(), 'System Integrator', 'Brasil', 'Santa Catarina', 'Florianapolis','NET30',
                   'Sedex', 17800))
 
 button.grid(row=20, column=4, padx=0, pady=0)
