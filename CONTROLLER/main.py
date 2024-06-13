@@ -2,11 +2,11 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 import datetime
-import about
-import clientes
-import dolarnow
-import button_Controller
-import setDatabase_view
+from VIEW import about
+from VIEW import clientes_janela
+from CONTROLLER import dolarnow
+from CONTROLLER import button_Controller
+from CONTROLLER import setDatabase_view
 
 data = datetime.date.today()
 data_formatada = data.strftime("%d%m%Y")
@@ -148,7 +148,7 @@ combobox_frete.grid(row=4, column=1, padx=0, pady=0)
 
 label = tk.Label(left_pane, text="Cadastrar/Editar")
 label.grid(row=0, column=0, padx=0, pady=5)
-button = tk.Button(left_pane, text="Clientes  ", width=10, height=1, command=lambda: clientes.ClientesJanela())
+button = tk.Button(left_pane, text="Clientes  ", width=10, height=1, command=lambda: clientes_janela.ClientesJanela())
 button.grid(row=2, column=0, padx=0, pady=5, sticky="w")
 
 button = tk.Button(left_pane, width=10, height=1, text="Produtos  ", command="")
@@ -172,8 +172,8 @@ button.grid(row=6, column=0, padx=0, pady=5, sticky="w")
                                                                #combobox_moeda.get(), combobox_inco.get(),
                                                                #combobox_termo.get(), combobox_frete.get()))
 button = tk.Button(right_pane, text="Gerar PDF",
-                   command=lambda:button_Controller.gerarQuote_Action(combobox_local.get(), combobox_language.get(),'BRL', data, 'Wellyson', 'Compwire',
-                  cliente.get(), 'System Integrator', 'Brasil', 'Santa Catarina', 'Florianapolis','NET30',
+                   command=lambda: button_Controller.gerarQuote_Action(combobox_local.get(), combobox_language.get(), 'BRL', data, 'Wellyson', 'Compwire',
+                                                                       cliente.get(), 'System Integrator', 'Brasil', 'Santa Catarina', 'Florianapolis','NET30',
                   'Sedex', 17800))
 
 button.grid(row=20, column=4, padx=0, pady=0)

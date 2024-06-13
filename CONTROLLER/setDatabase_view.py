@@ -1,12 +1,6 @@
 import tkinter as tk
-from tkinter import messagebox
-from tkinter import ttk
-import datetime
-import about
-import clientes
 import db_manager_teste
-import dolarnow
-import button_Controller
+
 
 def setDatabase_view():
 
@@ -47,7 +41,7 @@ def setDatabase_view():
     database_input = tk.Entry(janela_database)  # Campo para digitar a entrada
     database_input.grid(row=13, column=0, padx=0, pady=0)
 
-    button = tk.Button(janela_database, width=14, height=1, text="Configurar Banco  ", command=lambda: db_manager_teste.databaseChange(passcode_input.get(), host_input.get(), user_input.get(), password_input.get(), database_input.get()) )
+    button = tk.Button(janela_database, width=14, height=1, text="Configurar Banco  ", command=lambda: db_manager_teste.databaseChange(passcode_input.get(), host_input.get(), user_input.get(), password_input.get(), database_input.get()))
     button.grid(row=17, column=0, padx=8, pady=5, sticky="w")
 
 
