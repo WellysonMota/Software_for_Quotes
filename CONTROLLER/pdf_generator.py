@@ -5,26 +5,6 @@ import subprocess
 from fpdf import FPDF  # Certifique-se de ter a biblioteca fpdf instalada
 
 import pandas as pd
-from tabulate import tabulate
-
-
-produtos = [
-    {"Nome": "IPad", "Preço": 1200, "Quantidade": 1000},
-    {"Nome": "Iphone", "Preço": 3000, "Quantidade": 60},
-    {"Nome": "AppleWatch", "Preço": 2600, "Quantidade": 5000},
-]
-
-table = pd.DataFrame(produtos)
-table.style \
-    .format(precision=3, thousands=".", decimal=",")\
-    .format_index(str.upper, axis=1) \
-    .relabel_index(["row 1", "row 2", "row 3"], axis =0)
-tabela = tabulate(produtos, headers="keys", tablefmt="fancy_grid")
-
-
-folder_path = 'generated_quotes'
-if not os.path.exists(folder_path):
-    os.makedirs(folder_path)
 
 
 def PDF_Generator(origin, language, currency, date, accountmanager, companyname, contactname, companytype, companycountry, companystate,
@@ -75,7 +55,7 @@ def PDF_Generator(origin, language, currency, date, accountmanager, companyname,
     pdf.multi_cell(0, 10, f"Termo de Pagamento: {paymenterm}")
     pdf.multi_cell(0, 10, f"Frete: {freight}")
     pdf.multi_cell(0, 10, f"{helloQuote}")
-    pdf.multi_cell(0, 10, f"{table}",  align="C")
+
 
 
     nome_arquivo = f"Cotacao {companyname} {origin} - {data_formatada}.pdf"
@@ -86,8 +66,8 @@ def PDF_Generator(origin, language, currency, date, accountmanager, companyname,
 
         if os.path.exists(nome_arquivo):
             # Abra o arquivo PDF no leitor de PDF padrão
-            ## subprocess.Popen([nome_arquivo], shell=True) == PARA WINDOWS
-            subprocess.Popen(["xdg-open", nome_arquivo]) #PAra Linux!!!!
+            subprocess.Popen([nome_arquivo], shell=True) ##== PARA WINDOWS
+            ##subprocess.Popen(["xdg-open", nome_arquivo]) #PAra Linux!!!!
         else:
             print("PDF Não foi aberto, arquivo não existe")
             mensagem = "PDF Não foi aberto, arquivo não existe"

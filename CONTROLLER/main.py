@@ -2,11 +2,15 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 import datetime
+import button_Controller
+import setDatabase_view
+
+
+from CONTROLLER import dolarnow
 from VIEW import about
 from VIEW import clientes_janela
-from CONTROLLER import dolarnow
-from CONTROLLER import button_Controller
-from CONTROLLER import setDatabase_view
+
+
 
 data = datetime.date.today()
 data_formatada = data.strftime("%d%m%Y")
@@ -70,62 +74,66 @@ button = tk.Button(statusbar, text="Dolar Now", command=lambda: on_button_click(
 button.grid(row=0, column=0, padx=0, pady=0, sticky="w")
 
 # ====Configurações do Painel direito=======================================================================================
+label1 = tk.Label(right_pane, text="ÚLTIMAS COTAÇÕES GERADAS")
+label1.grid(row=0, column=0, padx=0, pady=0)
+
+
 label = tk.Label(right_pane, text="SELECIONE OS DADOS DA EPS")
-label.grid(row=0, column=0, padx=0, pady=0)
+label.grid(row=1, column=0, padx=0, pady=0)
 
 label = tk.Label(right_pane, text="Selecione a EPS de Origem:")
-label.grid(row=1, column=0, padx=0, pady=0)
+label.grid(row=2, column=0, padx=0, pady=0)
 localidades = ["Brasil", "Estados Unidos", "Irlanda"]
 combobox_local = ttk.Combobox(right_pane, values=localidades)
-combobox_local.grid(row=2, column=0, padx=0, pady=0)
+combobox_local.grid(row=3, column=0, padx=0, pady=0)
 
 label = tk.Label(right_pane, text="Selecione a Linguagem:")
-label.grid(row=3, column=0, padx=0, pady=0)
+label.grid(row=4, column=0, padx=0, pady=0)
 linguagem = ["PT-BR", "EN-US", "ES-AR"]
 combobox_language = ttk.Combobox(right_pane, values=linguagem)
-combobox_language.grid(row=4, column=0, padx=0, pady=0)
+combobox_language.grid(row=5, column=0, padx=0, pady=0)
 
 label = tk.Label(right_pane, text="Selecione o Incoterm:   ")
-label.grid(row=5, column=0, padx=0, pady=0)
+label.grid(row=6, column=0, padx=0, pady=0)
 incoterm = ["CIF", "EXW", "FOB", "DDP", "DAP"]
 combobox_inco = ttk.Combobox(right_pane, values=incoterm)
-combobox_inco.grid(row=6, column=0, padx=0, pady=0)
+combobox_inco.grid(row=7, column=0, padx=0, pady=0)
 
 label = tk.Label(right_pane, text="Selecione a Moeda:")
-label.grid(row=7, column=0, padx=0, pady=0)
+label.grid(row=8, column=0, padx=0, pady=0)
 lista_moeda = ["BRL", "USD", "EUR", ]
 combobox_moeda = ttk.Combobox(right_pane, values=lista_moeda)
-combobox_moeda.grid(row=8, column=0, padx=0, pady=0)
+combobox_moeda.grid(row=9, column=0, padx=0, pady=0)
 
 label = tk.Label(right_pane, text="Selecione o Account Manager")
-label.grid(row=9, column=0, padx=0, pady=0)
+label.grid(row=10, column=0, padx=0, pady=0)
 lista_manager = ["Welly", "Niall", "Gabi", ]
 combobox_manager = ttk.Combobox(right_pane, values=lista_manager)
-combobox_manager.grid(row=10, column=0, padx=0, pady=0)
+combobox_manager.grid(row=11, column=0, padx=0, pady=0)
 
 label = tk.Label(right_pane, text="")
-label.grid(row=11, column=0, padx=0, pady=0)
-label = tk.Label(right_pane, text="SELECIONE OS DADOS DO CLIENTE")
 label.grid(row=12, column=0, padx=0, pady=0)
+label = tk.Label(right_pane, text="SELECIONE OS DADOS DO CLIENTE")
+label.grid(row=13, column=0, padx=0, pady=0)
 
 button = tk.Button(right_pane, text="Buscar Cliente", command="")
-button.grid(row=13, column=0, padx=50, pady=10, sticky="w")
+button.grid(row=14, column=0, padx=50, pady=10, sticky="w")
 
 label_nomecliente = tk.Label(right_pane, text="Digite o nome do cliente:")
-label_nomecliente.grid(row=14, column=0, padx=0, pady=0)
+label_nomecliente.grid(row=15, column=0, padx=0, pady=0)
 cliente = tk.Entry(right_pane)  # Campo para digitar a entrada
-cliente.grid(row=15, column=0, padx=0, pady=0)
+cliente.grid(row=16, column=0, padx=0, pady=0)
 
 label = tk.Label(right_pane, text="Digite o nome da Empresa")
-label.grid(row=16, column=0, padx=0, pady=0)
+label.grid(row=17, column=0, padx=0, pady=0)
 empresa = tk.Entry(right_pane)  # Campo para digitar a entrada
-empresa.grid(row=17, column=0, padx=0, pady=0)
+empresa.grid(row=18, column=0, padx=0, pady=0)
 
 label = tk.Label(right_pane, text="Finalidade")
-label.grid(row=18, column=0, padx=0, pady=0)
+label.grid(row=19, column=0, padx=0, pady=0)
 lista_termo = ["Usuario final", "Revenda", "Industrialização", ]
 combobox_termo = ttk.Combobox(right_pane, values=lista_termo)
-combobox_termo.grid(row=19, column=0, padx=0, pady=0)
+combobox_termo.grid(row=20, column=0, padx=0, pady=0)
 
 label = tk.Label(right_pane, text="SELECIONE OS TERMOS DE PAGAMENTO:")
 label.grid(row=0, column=1, padx=0, pady=0)

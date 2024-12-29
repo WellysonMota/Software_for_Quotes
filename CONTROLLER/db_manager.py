@@ -7,10 +7,10 @@ def criar_conexao():
     """Cria uma conexão com o banco de dados."""
     try:
         conexao = mysql.connector.connect(
-            host='127.0.0.1',
+            host='localhost',
             user='root',
-            password='',
-            database='QuotesDatabase'
+            password='Motta1993!',
+            database='mydb'
         )
         print("Banco Conectado com sucesso!")
         return conexao
@@ -89,3 +89,6 @@ def deletar_quote(id_quote):
 
     # Deletar uma quote pelo ID
     # deletar_quote(1)
+
+
+

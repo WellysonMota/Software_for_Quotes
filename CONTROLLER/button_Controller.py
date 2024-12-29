@@ -2,6 +2,7 @@ import pdf_generator
 import db_manager
 
 
+
 def gerarQuote_Action(origin, language, currency, date, accountmanager, companyname, contactname, companytype,
                       companycountry, companystate,
                       companycity, paymenterm, freight, totalamount):
