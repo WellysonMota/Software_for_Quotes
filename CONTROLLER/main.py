@@ -185,5 +185,6 @@ button = tk.Button(right_pane, text="Gerar PDF",
                   'Sedex', 17800))
 
 button.grid(row=20, column=4, padx=0, pady=0)
+print("Programa Executado com sucesso!")
 
 janela.mainloop()
