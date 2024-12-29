@@ -186,5 +186,6 @@ button = tk.Button(right_pane, text="Gerar PDF",
 
 button.grid(row=20, column=4, padx=0, pady=0)
 print("Programa Executado com sucesso!")
+print("Programa Executado com sucesso!")
 
 janela.mainloop()
